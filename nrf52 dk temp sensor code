@@ -4,17 +4,20 @@
 #include "app_util_platform.h"
 #include "nrf_delay.h /*added from nrf documentation*/
 
+#define TWI_INSTANCE_ID 0
+
+static const nrf_drv_twi_t m_twi = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID;/*added from example.
+*calls the NRF driver */
+
 typedef enum {
 	SENSOR_OK = 0,
 	SENSOR_ERROR = 1
-}
-sensor_status_t;
+} sensor_status_t;
 
 typedef struct {
 	int16_t temperature;
 	int32_t pressure;
-} 
-sensor_data_t; /*according to example use structs for sensor data*/
+} sensor_data_t; /*according to example use structs for sensor data*/
 
 #define BMP280_ADDR 0x00
 #define TEMP_MSB_REG 0x00 /*need to find out the actual values for these defines*/
